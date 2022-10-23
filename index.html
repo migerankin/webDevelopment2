@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="screen-orientation" content="portrait">
+  <meta name="x5-orientation" content="portrait">
+  <meta name="description" content=""/>
+  <title>平阳黄汤茶</title>
+  <script src="./drag.js"></script>
+  <style>
+    html,body{ height: 100%;}
+    html{
+      background-color: #eee;
+    }
+    body{
+      position: relative;
+      max-width: 640px;
+      margin: 0 auto;
+      background-color: #fff;
+    }
+    img{
+      display: inline-block;
+      position: absolute;
+    }
+    .btn{
+      width: 100px;
+      height: 50px;
+      position: absolute;
+    }
+  </style>
+  <script>
+    var height_window = window.innerHeight;
+    var width_window = window.innerWidth;
+  </script>
+</head>
+<body ontouchstart="" style="background-image:url('images/背景.png');background-size: 100%;">
+  <input type="button" id="btn_step1_to_2" class="btn" value="next" style="display: none;">
+  <div id="step1_background" style="z-index: -999;">
+    <img src="./images/1.png" id="step1_center">
+  </div>
+
+  <div id="step1">
+    <div id="step1_cheef_div" style="z-index: 1;">
+      <img src="./images/一堆茶叶.png" id="step1_cheef" style="z-index: 1;">
+    </div>
+    <div id="step1_empytBox_div" style="z-index: 1;">
+      <img src="./images/空竹扁.png" id="step1_empytBox" style="z-index: 1;">
+    </div>
+    <div id="step1_fullBox_div" style="z-index: 2;">
+      <img src="./images/放茶叶.png" id="step1_fullBox" style="z-index: 2;">
+    </div>
+    <div  id="step1_endBox_div" style="z-index: 1;">
+      <img src="./images/放入竹扁.png" id="step1_endBox" style="z-index: 1;">
+    </div>
+  </div>
+  <script>
+    var step1_center = document.getElementById('step1_center');
+    step1_center.style.width = width_window + 'px';
+    step1_center.style.top = height_window/2 - width_window*4/6 + 'px';
+
+    //茶叶图片的大小
+    var step1_cheef = document.getElementById('step1_cheef');
+    step1_cheef.style.width = width_window*0.18 +'px';
+    //茶叶图片的位置
+    step1_cheef.style.left = width_window*0.63 +'px';
+    step1_cheef.style.top = height_window*0.35 +'px';
+
+    //空竹扁图片的位置大小
+    var step1_empytBox = document.getElementById('step1_empytBox');
+    step1_empytBox.style.width = width_window*0.18 + 'px';
+    step1_empytBox.style.top = height_window*0.48 +'px';
+    step1_empytBox.style.left = width_window*0.48 +'px';
+
+    //装了茶叶的竹扁的位置大小
+    var step1_fullBox = document.getElementById('step1_fullBox');
+    step1_fullBox.style.width = width_window*0.18 + 'px';
+    step1_fullBox.style.top = height_window*0.48 +'px';
+    step1_fullBox.style.left = width_window*0.48 +'px';
+
+    //架子
+    var step1_endBox = document.getElementById('step1_endBox');
+    step1_endBox.style.width = width_window*0.3 + 'px';
+    step1_endBox.style.top = height_window*0.275 +'px';
+    step1_endBox.style.left = width_window*0.154 +'px';
+
+    //display
+    document.getElementById('step1_fullBox_div').style.display = 'none';
+    document.getElementById('step1_endBox_div').style.display = 'none';
+
+    //点击事件
+    step1_cheef.onclick = function(){
+      document.getElementById('step1_fullBox_div').style.display = '';
+      document.getElementById('step1_cheef_div').style.display = 'none';
+      document.getElementById('step1_empytBox_div').style.display = 'none';
+    }
+    document.getElementById('step1_fullBox_div').onclick = function(){
+      document.getElementById('step1_endBox_div').style.display = '';
+      document.getElementById('step1_fullBox_div').style.display = 'none';
+      btn12.style.display = '';
+    }
+
+    //按钮
+    btn12 = document.getElementById('btn_step1_to_2');
+    btn12.style.top = height_window*0.85+'px';
+    btn12.style.left = width_window*0.5-50+'px';
+
+    btn12.onclick = function(){
+      document.getElementById('step1').style.display = 'none';
+      document.getElementById('step2').style.display = '';
+      step1_center.src = './images/2.png';
+      btn12.style.display = 'none';
+    }
+  </script>
+
+  <div id="step2" style="display: none;">
+    <div id="step2_chai1_div" style="z-index: 1;">
+      <img src="./images/step2/柴1.png" id="step2_chai1" style="z-index: 1;">
+    </div>
+    <div id="step2_chai2_div" style="z-index: 2;">
+      <img src="./images/step2/柴2.png" id="step2_chai2" style="z-index: 2;">
+    </div>
+    <div id="step2_endBackground_div" style="z-index: -1;opacity: 0; transition: 1s;">
+      <img src="./images/step2/杀青2.png" id="step2_endBackground" style="z-index: 3;">
+    </div>
+    <script>
+    var step2_endBackground = document.getElementById('step2_endBackground');
+    step2_endBackground.style.width = width_window + 'px';
+    step2_endBackground.style.top = height_window/2 - width_window*4/6 + 'px';
+
+      step2_chaidong = document.getElementById('step2_chaidong');
+      step2_chai1_div = document.getElementById('step2_chai1_div');
+      step2_chai1 = document.getElementById('step2_chai1');
+      step2_chai2_div = document.getElementById('step2_chai2_div');
+      step2_chai2 = document.getElementById('step2_chai2');
+      step2_endBackground_div = document.getElementById('step2_endBackground_div');
+      step2_endBackground = document.getElementById('step2_endBackground');
+
+      //柴火
+      step2_chai1.style.width = width_window*0.03+'px';
+      step2_chai2.style.width = width_window*0.04+'px';
+      step2_chai2.style.top = height_window*0.5+'px';
+      step2_chai2.style.left = width_window*0.15+'px';
+      step2_chai1.style.left = width_window*0.3+'px';
+      step2_chai1.style.top = height_window*0.48+'px';
+
+      var times_fire = 0;
+      step2_chai1_div.onclick = function(){
+        step2_chai1.style.left = width_window*0.24+'px';
+        step2_chai1.style.top = height_window*0.43+'px';
+        times_fire+=1;
+        if(times_fire==2){
+          step2_endBackground_div.style.display = '';
+        }
+      }
+      step2_chai2_div.onclick = function(){
+        step2_chai2.style.top = height_window*0.43+'px';
+        step2_chai2.style.left = width_window*0.272+'px';
+        times_fire+=1;
+        if(times_fire==2){
+          step2_endBackground_div.style.zIndex = '3';
+          step2_endBackground_div.style.opacity = '1';
+        }
+      }
+    </script>
+  </div>
+</body>
+</html>
